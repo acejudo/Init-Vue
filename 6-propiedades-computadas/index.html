@@ -1,0 +1,47 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Vue.js</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <main>
+
+        <div>{{mensajeAlReves}}</div>
+        <ul>
+            <li v-if="tarea.prioridad" v-for='tarea in tareas'>
+                <small>{{tarea.titulo}}</small>
+                <small>{{tarea.prioridad}}</small>
+                <small>{{tarea.antiguedad}}</small>
+            </li>
+        </ul>
+
+
+        <ul>
+            <li v-for='tareaCompu in tareasConPrioridad'>
+                <small>{{tareaCompu.titulo}}</small>
+                <small>{{tareaCompu.prioridad}}</small>
+                <small>{{tareaCompu.antiguedad}}</small>
+            </li>
+        </ul>
+        <ul>
+            <li v-for='tareaOrdenada in tareasPorAntiguedad'>
+                <small>{{tareaOrdenada.titulo}}</small>
+                <small>{{tareaOrdenada.prioridad}}</small>
+                <small>{{tareaOrdenada.antiguedad}}</small>
+            </li>
+        </ul>
+
+        <pre>{{$data}}</pre>
+
+    </main>
+    <script src="https://unpkg.com/vue@2.4.4/dist/vue.js"> </script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
