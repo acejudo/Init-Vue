@@ -1,0 +1,51 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Vue.js</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <main>
+
+        <ul>
+            <li v-for='tarea in tareas'>
+                <small>{{tarea}}</small>
+            </li>
+        </ul>
+        <!-- Con v-model enlazamos con el modelo de Vue-->
+        <input type=text placeholder="tarea" v-model="nuevaTarea">
+        <input type=button value="Enviar tarea" v-on:click="agregarTarea()">
+
+        <div v-on:mouseover="active = !active">
+            <h1>Hover me!</h1>
+        </div>
+        <div v-if="active">
+            <h2>Hello World!</h2>
+        </div>
+        <pre>{{$data}}</pre>
+
+
+        <form v-on:submit.prevent="agregarTarea()">
+            <ul>
+                <li v-for='tarea in tareas'>
+                    <small>{{tarea}}</small>
+                </li>
+            </ul>
+
+            <input type=text placeholder="tarea" v-model="nuevaTarea" >
+            <input type=submit value="Enviar tarea">
+        </form>
+
+        <input type=text  v-model="precio" v-on:keyup="multiplicarPrecio()">
+        <input type=text  v-model="preciox2">
+    </main>
+    <script src="https://unpkg.com/vue@2.4.4/dist/vue.js"> </script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
