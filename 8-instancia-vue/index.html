@@ -1,0 +1,27 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Vue.js</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <main>
+        <button v-on:click="delReves()">Del revés</button>
+        <button v-on:click="delReves2()">Del revés a otra directiva</button>
+       <input v-model= mensaje /> 
+       <pre>{{$data}}</pre>
+    </main>
+    <div id="app">
+        <h1>{{mensaje}}</h1>
+    </div>
+ 
+    <script src="https://unpkg.com/vue@2.4.4/dist/vue.js"> </script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
