@@ -1,0 +1,55 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Vue.js</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<main>
+    <!-- Reutilizamos cada slot con las etiquetas que queramos.
+    1º pasamos el listado de tareas
+    2º creación del template con scope="datos" o como viene en Vue scope="props"
+    3º con datos.atributo mostramos la información en la etiqueta que queramos
+
+    Esquema:
+     Componente -> Muestra el template -> El template contiene un Slot -> El slot se reutiliza 
+    -->
+    <mis-tareas :listado="tareas">
+        <template slot="tarea" scope="datos">
+            <li> <h1>{{ datos.title }}</h1></li>
+        </template>
+    </mis-tareas>
+
+    <mis-tareas :listado="tareas">
+        <template slot="tarea" scope="datos">
+            <li>{{ datos.title }}</li>
+        </template>
+    </mis-tareas>
+
+    <mis-tareas :listado="tareas">
+        <template slot="tarea" scope="datos">
+            <li>🐱{{ datos.title }}</li>
+        </template>
+    </mis-tareas>
+
+    <pre>{{ $data }}</pre>
+</main>
+
+<!-- Template -->
+<template id="mis-tareas-template">
+    <ul>
+        <slot name="tarea" v-for="tarea in listado" :title="tarea.titulo"></slot>
+    <!-- Sin reutilización          <li v-for="tarea in listado">
+            {{ tarea.titulo }}
+        </li>-->
+    </ul>
+</template>
+<script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
