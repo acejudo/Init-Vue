@@ -5,7 +5,7 @@ Vue.component('componentenombre',{
         modificarnombre() {
             this.$emit('modificacionnombre');
         }
-    }
+    } 
 });
 
 Vue.component('alerta', {
